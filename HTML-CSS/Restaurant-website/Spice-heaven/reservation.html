@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation of seats</title>
+    <link rel="stylesheet" href="styleres.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>🍽 Spice Heaven</li>
+                <li><a href="index_res.html" target="_blank">Home</a></li>
+                <li><a href="Menu.html" target="_blank">Menu</a></li>
+                <li><a href="About.html" target="_blank">About</a></li>
+                <li><a>Reservation</a></li>
+                <li><a href="Contactus.html" target="_blank">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="reserve">
+            <h1>📅 Reserve a table</h1>
+            <h2>Planning a special dinner, family gathering, or celebration?</h2>
+            <h2>Fill out the form below and we'll reserve your table.</h2>
+        </div>
+        <div class="form">
+            <form>
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                <div>
+                    <label for="mail">Email address:</label>
+                    <input type="email" id="mail" placeholder="Enter email" required>
+                </div>
+                <div>
+                    <label for="ph">Phone Number:</label>
+                    <input type="tel" id="ph" placeholder="Enter phone number" required>
+                </div>
+                <div>
+                    <label for="date">Reservation Date:</label>
+                    <input type="date" id="date" placeholder="Enter date of reservation" required>
+                </div>
+                <div><label for="time">Reservation Time:</label>
+                    <input type="time" name="time" id="time" placeholder="Enter reservation time">
+                </div>
+                <div><label for="number">Number of guests:</label>
+                    <input type="number" name="number" id="number" placeholder="Enter number of guest" min="1">
+                </div>
+                <div>
+                    <textarea id="requests">Special Requests</textarea>
+                </div>
+                <div>
+                    <button type="submit">Reserve Now</button>
+                </div>
+            </form>
+        </div>
+        <div class="policy">
+            <h2>Reservation Policy</h2>
+            <ul>
+                <li>Reservations are held for 15 minutes</li>
+                <li>For groups larger than 10, please contact us directly</li>
+                <li>Cancellations should be made at least 24 hours in advance</li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <p>"Good food is all the sweeter when shared with good company"</p>
+            <span>fssai accredition</span>
+            <span>all Policies followed</span>
+            <span>Established since 1947</span>
+        </div>
+    </footer>
+
+</body>
+
+</html>

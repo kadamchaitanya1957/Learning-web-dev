@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice Heaven</title>
+    <link rel="stylesheet" href="styleindex.css">
+</head>
+<style>
+    .nav {
+        width:100%;
+        height:10%;
+        top:0;
+        left:-100%;
+        position:fixed;
+        padding: 10px 0;
+        display: flex;
+        list-style: none;
+        text-decoration: none;
+        justify-content: space-evenly;
+        margin-top: 10px;
+    }
+    .lines{
+        position:fixed;
+        left:20px;
+        top:20px;
+        cursor:pointer;
+        z-index: 2;
+    }
+
+    .nav a {
+        text-decoration: none;
+    }
+    #menu-toggle{
+        display:none;
+    }
+    #menu-toggle:checked ~ .nav{
+    left: 0;
+    }
+    .hero{
+        margin-top: 100px;
+        padding: 1px;
+    }
+
+</style>
+
+<body>
+    <header>
+        <nav>
+             <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="lines">
+                    ☰
+                </label>
+            <ul class="nav">
+               
+                <li>🍽 Spice Heaven</li>
+                <li><a>Home</a></li>
+                <li><a href="Menu.html" target="_blank">Menu</a></li>
+                <li><a href="About.html" target="_blank">About</a></li>
+                <li><a href="reservation.html" target="_blank">Reservation</a></li>
+                <li><a href="Contactus.html" target="_blank">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="hero">
+                <h1>Spice Heaven</h1>
+                <h1>Authentic Indian Flavors
+                    Crafted with Passion, Served with Tradition</h1>
+                <h2>Experience the rich taste of India through carefully prepared dishes, fresh ingredients, and
+                    unforgettable hospitality.</h2>
+                <button type="button"><a href="reservation.html" target="_blank">Reserve a Table</a></button>
+                <button type="button"><a href="Menu.html" target="_blank">View Menu</a></button>
+            </div>
+        </section>
+        <section>
+            <div class="welcome">
+                <h2>Welcome to Spice Heaven</h2>
+                <p>At Spice Haven, we combine traditional Indian recipes with modern culinary excellence. Our goal is to
+                    provide every guest with a memorable dining experience filled with authentic flavors and warm
+                    hospitality.</p>
+            </div>
+            <div class="featured">
+                <ol>
+                    <h2>Featured Dishes</h2>
+                    <li>Butter Chicken
+                        <p>Rich and creamy tomato-based curry with tender chicken</p>
+                    </li>
+                    <li>Paneer Tikka
+                        <p>Marinated cottage cheese grilled in a traditional tandoor</p>
+                    </li>
+                    <li>Hyderabadi Biryani
+                        <p>Fragrant basmati rice layered with aromatic spices</p>
+                    </li>
+                    <li>Masala Dosa
+                        <p>A South Indian favorite served with chutneys and sambar</p>
+
+                    </li>
+                    <li>Gulab Jamun
+                        <P>soft milk dumplings soaked in sweet syrup</P>
+                    </li>
+                    <li>Mango Lassi
+                        <P>Refreshing yogurt drink blended with fresh mangoes.</P>
+                    </li>
+
+                </ol>
+            </div>
+        </section>
+        <section>
+            <div class="choose us">
+                <h2>Why Choose Us</h2>
+                <ul>
+                    <li>Fresh Ingredients</li>
+                    <li>Experienced Chefs</li>
+                    <li>Hygienic Kitchen</li>
+                    <li>Excellent Customer Service</li>
+                </ul>
+
+            </div>
+            <div classs="reviews">
+                <h2>Customer Reviews</h2>
+                <p>⭐⭐⭐⭐⭐
+                    "The food was absolutely amazing and the service was excellent."
+                    — Rahul Sharma</p>
+                <p>
+                    ⭐⭐⭐⭐⭐
+                    "Best Indian restaurant experience I've had."
+                    — Priya Patel
+                </p>
+
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <p>"Good food is all the sweeter when shared with good company"</p>
+            <span>fssai accredition</span>
+            <span>all Policies followed</span>
+            <span>Established since 1947</span>
+        </div>
+    </footer>
+</body>
+
+</html>
