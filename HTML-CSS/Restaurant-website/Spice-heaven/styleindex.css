@@ -1,0 +1,513 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+SC:wght@300;400;500;600;700&family=Italianno&family=Merienda:wght@300..900&family=Playfair+Display:ital,wght@1,400..900&family=Tangerine:wght@400;700&display=swap');
+
+    :root {
+
+        /*WOOD*/
+
+        --wood-black: #1A1412;
+        /* Almost black wood */
+        --wood-ebony: #211916;
+        /* Hero background */
+        --wood-espresso: #2B1F1A;
+        /* Dark sections */
+        --wood-walnut: #3B2A21;
+        /* Cards */
+        --wood-mahogany: #4A2F27;
+        /* Hover states */
+        --wood-oak: #5B3A29;
+        /* Borders/Highlights */
+        -wood-maple: #D6B89A;
+        /* Soft maple */
+        --wood-ash: #C8A98B;
+        /* Light ash wood */
+        --wood-oak-light: #BE9B7B;
+        /* Natural oak */
+        --wood-teak: #B7855D;
+        /* Warm teak */
+        --wood-honey: #C99663;
+        /* Honey wood */
+        --wood-caramel: #A9754B;
+        /* Rich caramel */
+        --wood-cedar: #8B5E3C;
+        /* Light cedar */
+        /* GOLD */
+
+        --gold-dark: #A67C3D;
+        --gold: #C9A66B;
+        --gold-light: #E0C28A;
+
+        /* CREAM / TEXT */
+
+        --cream: #F5F1E8;
+        --cream-dark: #DED5C8;
+        --cream-light: #FFFDF8;
+
+        /*GREYS*/
+
+        --charcoal: #252525;
+        --grey: #707070;
+        --light-grey: #B8B8B8;
+
+        /* SHADOWS */
+
+        --shadow-light: rgba(0, 0, 0, 0.20);
+        --shadow: rgba(0, 0, 0, 0.35);
+        --shadow-dark: rgba(0, 0, 0, 0.60);
+
+        /*TRANSITIONS*/
+
+        --transition: 0.3s ease;
+    }
+
+    body {
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav {
+        color: burlywood;
+        width: 100%;
+        height: 20px;
+        top: 0;
+        left: -100%;
+        position: fixed;
+        padding: 10px 0;
+        display: flex;
+        list-style: none;
+        text-decoration: none;
+        align-content: center;
+        justify-content: space-evenly;
+        margin-top: 0;
+        margin-bottom: 0;
+        background-color: rgb(42, 16, 6);
+        transition: left 0.7s ease-in;
+        z-index: 2;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+
+
+
+    .lines {
+        color:black;
+        position: fixed;
+        left: 20px;
+        top: 10px;
+        cursor: pointer;
+        z-index: 3;
+    }
+
+    .lines:hover {
+        font-size: 20px;
+        
+    }
+
+    .nav a {
+        text-decoration: none;
+    }
+
+
+    .nav a:visited,
+    .nav a:link {
+        color: burlywood;
+    }
+
+    .nav li:hover {
+        box-shadow: 0 2px 0 rgba(255, 255, 255, 0.708);
+        font-size: 20px;
+    }
+
+    #menu-toggle {
+        display: none;
+    }
+
+    #menu-toggle:checked~.nav {
+        left: 0;
+    }
+
+
+    .hero {
+
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        padding-top: 250px;
+        padding-bottom: 300px;
+        margin-bottom: 0;
+        background-image: radial-gradient(circle,
+                rgba(44, 24, 9, 0.2)0%,
+                rgba(20, 10, 3, 0.5)80%,
+                rgba(10, 5, 1, 0.7)100%),
+            url("hero.jpg");
+
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+
+    .head,
+    .subhead {
+
+
+        text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.7);
+        font-weight: 650px;
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-optical-sizing: auto;
+        margin-top: 0;
+
+        height: 100%;
+        font-size: 2.6rem;
+        letter-spacing: 2px;
+        color: ivory;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 1.5s ease forwards;
+    }
+
+    .subhead {
+        animation-delay: 1s;
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
+
+    .one {
+        height: 409px;
+        margin-top: 0;
+        background-color: var(--cream);
+        border: 5px solid var(--wood-oak);
+
+
+    }
+
+    .invite {
+
+        display: inline-block;
+        width: 400px;
+        height: 400px;
+        padding-left: 100px;
+        padding-top: 25px;
+
+
+    }
+
+    .invite,
+    .invite button {
+        font-family: "Cormorant SC", serif;
+        font-weight: 500;
+        font-size: 18px;
+
+
+    }
+
+    .invite a {
+        text-decoration: none;
+        margin: 20px;
+
+    }
+
+    .invite a:visited {
+        color: black;
+    }
+
+    .card {
+        z-index: 0;
+        position: absolute;
+        display: inline-block;
+        width: 600px;
+        height: 405px;
+        right: 0;
+        border: 2px solid var(--wood-oak);
+    }
+    .welcome{
+        text-align: center;
+        font-family:"Playfair Display", serif;
+    }
+    
+
+    .featured{
+        text-align: center;
+        font-family: "Cormorant SC", serif;
+        background-color: var(--cream);
+        margin:0 auto;
+        width: 90%;
+
+        
+    }
+  
+    .welcome p {
+        font-size: 20px;
+
+    }
+    
+
+.featured > h2{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 80px;
+    color: var(--wood-black);
+    }
+
+
+.dish{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 420px;
+
+    margin: 70px 0;
+    gap: 70px;
+}
+
+/* Reverse every even dish */
+.dish:nth-child(even){
+    flex-direction: row-reverse;
+}
+
+.content{
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: 100%;
+}
+
+.content h2{
+    font-size: 2.4rem;
+    color: var(--wood-black);
+    margin-bottom: 18px;
+}
+
+.content p{
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--wood-espresso);
+    max-width: 500px;
+}
+
+
+.dish img{
+    width: 500px;
+    height: 320px;
+    padding: 0,20px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.35);
+    transition: .4s;
+}
+
+.dish img:hover{
+    transform: scale(1.04);
+}
+
+.dish:nth-child(even) .content{
+    padding-right: 80px;
+    text-align: right;
+    align-items: flex-end;
+}
+
+.info-section{
+    display:flex;
+    justify-content:space-between;
+    gap:60px;
+    padding:90px 10%;
+    background:#f9f5ef;
+    flex-wrap:wrap;
+}
+
+
+.choose-us{
+    flex:1;
+    min-width:320px;
+
+    background:#2d1b0f;
+    color:#f5efe4;
+
+    padding:40px;
+    border-radius:18px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+}
+
+.choose-us h2{
+    font-size:2.3rem;
+    color:#d4af37;
+    margin-bottom:30px;
+    font-family:"Playfair Display",serif;
+}
+
+.choose-us ul{
+    list-style:none;
+    padding:0;
+}
+
+.choose-us li{
+
+    font-size:1.2rem;
+    padding:18px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+    transition:.3s;
+}
+
+.choose-us li:last-child{
+    border:none;
+}
+
+.choose-us li:hover{
+    transform:translateX(10px);
+    color:#d4af33;
+}
+
+.reviews{
+    flex:1;
+    min-width:320px;
+}
+
+.reviews h2{
+
+    font-size:2.3rem;
+    margin-bottom:30px;
+
+    color:#4b2e19;
+
+    font-family:"Playfair Display",serif;
+}
+
+.review-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+
+    transition:.35s;
+
+    border-left:6px solid #c89b3c;
+}
+
+.review-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.18);
+}
+
+.stars{
+
+    color:#d4af37;
+
+    font-size:1.5rem;
+
+    letter-spacing:3px;
+
+    margin-bottom:15px;
+}
+
+.review-card p{
+
+    color:#555;
+
+    line-height:1.8;
+
+    font-size:1.05rem;
+
+    font-style:italic;
+}
+
+.review-card h4{
+
+    margin-top:18px;
+
+    color:#4b2e19;
+
+    font-size:1rem;
+}
+
+
+/* ===============================
+            Footer
+==================================*/
+
+footer{
+
+    background:#24160d;
+
+    color:white;
+
+    margin-top:80px;
+}
+
+footer div{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:50px 10%;
+
+    text-align:center;
+}
+
+footer p{
+
+    font-size:1.8rem;
+
+    font-family:"Playfair Display",serif;
+
+    color:#d4af37;
+
+    margin-bottom:35px;
+
+    font-style:italic;
+}
+
+footer span{
+
+    display:inline-block;
+
+    margin:12px;
+
+    padding:12px 25px;
+
+    background:#3b2618;
+
+    border:1px solid rgba(212,175,55,.35);
+
+    color:#f5efe4;
+
+    border-radius:40px;
+
+    transition:.3s;
+}
+
+footer span:hover{
+
+    background:#d4af37;
+
+    color:#24160d;
+
+    transform:translateY(-5px);
+}

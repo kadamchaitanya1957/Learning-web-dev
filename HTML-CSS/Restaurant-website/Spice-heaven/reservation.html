@@ -6,22 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservation of seats</title>
     <link rel="stylesheet" href="styleres.css">
+
 </head>
 
 <body>
     <header>
         <nav>
-            <ul>
-                <li>🍽 Spice Heaven</li>
-                <li><a href="index_res.html" target="_blank">Home</a></li>
-                <li><a href="Menu.html" target="_blank">Menu</a></li>
-                <li><a href="About.html" target="_blank">About</a></li>
-                <li><a>Reservation</a></li>
-                <li><a href="Contactus.html" target="_blank">Contact</a></li>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="lines">
+                ☰
+            </label>
+            <ul class="nav">
+
+                <li><a>🍽 Spice Heaven</a></li>
+                <li><a href="index.html">🏡 Home</a></li>
+                <li><a href="Menu.html" target="_blank">🍴 Menu</a></li>
+                <li><a href="Aboutus.html" target="_blank">🥂 About</a></li>
+                <li><a>🕰️ Reservation</a></li>
+                <li><a href="Contactus.html" target="_blank">✉️ Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
+        <section class="hero">
+            <div class="hero-overlay">
+                <h1>Reserve Your Table</h1>
+                <p>Every memorable evening begins with a reservation.</p>
+            </div>
+        </section>
         <div class="reserve">
             <h1>📅 Reserve a table</h1>
             <h2>Planning a special dinner, family gathering, or celebration?</h2>
@@ -52,7 +64,8 @@
                     <input type="number" name="number" id="number" placeholder="Enter number of guest" min="1">
                 </div>
                 <div>
-                    <textarea id="requests">Special Requests</textarea>
+                    <label for="requests">Special Requests</label>
+                    <textarea id="requests" placeholder="Anniversary, birthday, dietary requirements..."></textarea>
                 </div>
                 <div>
                     <button type="submit">Reserve Now</button>

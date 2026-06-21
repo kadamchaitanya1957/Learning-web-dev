@@ -1,0 +1,312 @@
+ body {
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav {
+        color: burlywood;
+        width: 100%;
+        height: 20px;
+        top: 0;
+        left: -100%;
+        position: fixed;
+        padding: 10px 0;
+        display: flex;
+        list-style: none;
+        text-decoration: none;
+        align-content: center;
+        justify-content: space-evenly;
+        margin-top: 0;
+        margin-bottom: 0;
+        background-color: rgb(42, 16, 6);
+        transition: left 0.7s ease-in;
+        z-index: 2;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+
+
+
+    .lines {
+        color: black;
+        position: fixed;
+        left: 20px;
+        top: 10px;
+        cursor: pointer;
+        z-index: 3;
+    }
+
+    .lines:hover {
+        font-size: 20px;
+        
+    }
+
+    .nav a {
+        text-decoration: none;
+    }
+
+
+    .nav a:visited,
+    .nav a:link {
+        color: burlywood;
+    }
+
+    .nav li:hover {
+        box-shadow: 0 2px 0 rgba(255, 255, 255, 0.708);
+        font-size: 20px;
+    }
+
+    #menu-toggle {
+        display: none;
+    }
+
+    #menu-toggle:checked~.nav {
+        left: 0;
+    }
+   body{
+
+    background:#f5efe4;
+
+    color:#32251d;
+
+    font-family:"Cormorant Garamond",serif;
+
+    line-height:1.9;
+}
+
+
+/* Main */
+
+main{
+
+    width:75%;
+
+    max-width:900px;
+
+    margin:100px auto;
+}
+.about-image{
+    margin:70px 0 90px;
+}
+
+.about-image img{
+    width:100%;
+    height:520px;
+    object-fit:cover;
+
+    border-radius:6px;
+
+    filter:brightness(75%) contrast(105%) saturate(90%);
+
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+
+    transition:transform .8s ease;
+}
+
+.about-image{
+    overflow:hidden;
+}
+
+.about-image img:hover{
+    transform:scale(1.05);
+}
+
+/* Heading */
+
+main>h1{
+
+    text-align:center;
+
+    font-size:4rem;
+
+    font-family:"Playfair Display",serif;
+
+    font-weight:600;
+
+    color:#2b1b13;
+
+    margin-bottom:80px;
+
+    letter-spacing:3px;
+}
+
+main>h1::after{
+
+    content:"";
+
+    display:block;
+
+    width:100px;
+
+    height:2px;
+
+    background:#b68d40;
+
+    margin:25px auto;
+}
+
+
+/* Sections */
+
+.story,
+.philosophy,
+.chefs,
+.values{
+
+    margin-bottom:90px;
+}
+
+
+/* Headings */
+
+main h2{
+
+    font-size:2.3rem;
+
+    font-family:"Playfair Display",serif;
+
+    color:#6a4424;
+
+    margin-bottom:30px;
+}
+
+
+/* Paragraph */
+
+main p{
+
+    font-size:1.35rem;
+
+    color:#4b433f;
+
+    margin-bottom:25px;
+
+    text-align:justify;
+}
+
+
+/* Chef Names */
+
+.chefs h3{
+
+    font-size:1.6rem;
+
+    margin-top:45px;
+
+    color:#2b1b13;
+
+    font-style:italic;
+}
+
+
+/* Values */
+
+.values ul{
+
+    list-style:none;
+
+    padding:0;
+}
+
+.values li{
+
+    font-size:1.3rem;
+
+    padding:18px 0;
+
+    border-bottom:1px solid #d8c6a5;
+
+    position:relative;
+
+    padding-left:35px;
+}
+
+.values li::before{
+
+    content:"✦";
+
+    position:absolute;
+
+    left:0;
+
+    color:#b68d40;
+}
+
+
+/* First letter */
+
+.story p:first-of-type::first-letter{
+
+    float:left;
+
+    font-size:4rem;
+
+    line-height:1;
+
+    padding-right:12px;
+
+    color:#8a5a2b;
+
+    font-family:"Playfair Display",serif;
+}
+
+    footer{
+
+    background:#24160d;
+
+    color:white;
+
+    margin-top:80px;
+}
+
+footer div{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:50px 10%;
+
+    text-align:center;
+}
+
+footer p{
+
+    font-size:1.8rem;
+
+    font-family:"Playfair Display",serif;
+
+    color:#d4af37;
+
+    margin-bottom:35px;
+
+    font-style:italic;
+}
+
+footer span{
+
+    display:inline-block;
+
+    margin:12px;
+
+    padding:12px 25px;
+
+    background:#3b2618;
+
+    border:1px solid rgba(212,175,55,.35);
+
+    color:#f5efe4;
+
+    border-radius:40px;
+
+    transition:.3s;
+}
+
+footer span:hover{
+
+    background:#d4af37;
+
+    color:#24160d;
+
+    transform:translateY(-5px);
+}

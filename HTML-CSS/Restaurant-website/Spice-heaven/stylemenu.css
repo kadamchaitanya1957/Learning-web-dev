@@ -1,0 +1,325 @@
+ body {
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav {
+        color: burlywood;
+        width: 100%;
+        height: 20px;
+        top: 0;
+        left: -100%;
+        position: fixed;
+        padding: 10px 0;
+        display: flex;
+        list-style: none;
+        text-decoration: none;
+        align-content: center;
+        justify-content: space-evenly;
+        margin-top: 0;
+        margin-bottom: 0;
+        background-color: rgb(42, 16, 6);
+        transition: left 0.7s ease-in;
+        z-index: 2;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+
+
+
+    .lines {
+        color: ivory;
+        position: fixed;
+        left: 20px;
+        top: 10px;
+        cursor: pointer;
+        z-index: 3;
+    }
+
+    .lines:hover {
+        font-size: 20px;
+        
+    }
+
+    .nav a {
+        text-decoration: none;
+    }
+
+
+    .nav a:visited,
+    .nav a:link {
+        color: burlywood;
+    }
+
+    .nav li:hover {
+        box-shadow: 0 2px 0 rgba(255, 255, 255, 0.708);
+        font-size: 20px;
+    }
+
+    #menu-toggle {
+        display: none;
+    }
+
+    #menu-toggle:checked~.nav {
+        left: 0;
+    }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap');
+
+
+body{
+
+    margin:0;
+
+    font-family:Poppins,sans-serif;
+
+    background:#f5efe4;
+
+    color:#2b1b13;
+}
+.hero{
+
+    height:60vh;
+
+    background-image:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80");
+
+    background-size:cover;
+
+    background-position:center;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+}
+
+.hero-overlay h1{
+
+    font-size:4.3rem;
+
+    color:#fff;
+
+    margin:0;
+
+    font-family:"Playfair Display",serif;
+
+    letter-spacing:3px;
+}
+
+.hero-overlay p{
+
+    color:#eee;
+
+    font-size:1.3rem;
+
+    margin-top:18px;
+}
+
+.menu-container{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:80px 0;
+}
+
+.menu-container>div{
+
+    margin-bottom:70px;
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.12);
+
+    transition:.35s;
+}
+
+.menu-container>div:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.18);
+}
+
+.menu-container h2{
+
+    margin:0;
+
+    padding:20px;
+
+    text-align:center;
+
+    background:#2d1b0f;
+
+    color:#d4af37;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:2rem;
+
+    letter-spacing:1px;
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+}
+
+th{
+
+    background:#c89b3c;
+
+    color:white;
+
+    font-size:1.15rem;
+
+    padding:18px;
+}
+
+td{
+
+    padding:20px;
+
+    font-size:1.05rem;
+
+    border-bottom:1px solid #ececec;
+}
+
+tr:last-child td{
+
+    border-bottom:none;
+}
+
+tr:nth-child(even){
+
+    background:#faf7f2;
+}
+
+tr:hover{
+
+    background:#f2e6cc;
+
+    transition:.3s;
+}
+
+td:last-child{
+
+    text-align:right;
+
+    font-weight:600;
+
+    color:#7b3f00;
+}
+
+main>h1{
+
+    display:none;
+}
+
+
+hr{
+
+    display:none;
+}
+
+@media(max-width:768px)
+
+.hero{
+
+    height:45vh;
+}
+
+.hero-overlay h1{
+
+    font-size:3rem;
+}
+
+.hero-overlay p{
+
+    font-size:1rem;
+}
+
+.menu-container{
+
+    width:95%;
+}
+
+td,th{
+
+    padding:14px;
+}
+footer{
+
+    background:#24160d;
+
+    color:white;
+
+    margin-top:80px;
+}
+
+footer div{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:50px 10%;
+
+    text-align:center;
+}
+
+footer p{
+
+    font-size:1.8rem;
+
+    font-family:"Playfair Display",serif;
+
+    color:#d4af37;
+
+    margin-bottom:35px;
+
+    font-style:italic;
+}
+
+footer span{
+
+    display:inline-block;
+
+    margin:12px;
+
+    padding:12px 25px;
+
+    background:#3b2618;
+
+    border:1px solid rgba(212,175,55,.35);
+
+    color:#f5efe4;
+
+    border-radius:40px;
+
+    transition:.3s;
+}
+
+footer span:hover{
+
+    background:#d4af37;
+
+    color:#24160d;
+
+    transform:translateY(-5px);
+}
