@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylehome.css">
+    <link rel="icon" href="./assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="main">
+        <div class="sidebar">
+            <div class="sidebar-nav">
+                <div class="sidebar-nav-option" style="opacity:1;"><img src="./assets/logo.png" alt=""></i> <a
+                        href="#">Home</a>
+                </div>
+                <div class="sidebar-nav-option"><i class="fa-solid fa-circle-plus"></i> <a href="#">Create</a> </div>
+            </div>
+            <div class="library">
+                <div class="options">
+                    <div class="lib-option sidebar-nav-option"> <img src="./assets/library_icon.png" alt="img"> <a
+                            href="#">Your
+                            Library</a> </div>
+                    <div class="icons"> <i class="fa-solid fa-plus"></i> <i class="fa-solid fa-arrow-right"></i> </div>
+                </div>
+                <div class="lib-box">
+                    <div class="box">
+                        <div class="box-p1">
+                            <p>Create your first playlist</p>
+                        </div>
+                        <div class="box-p2">
+                            <p> It's easy we'll help you</p>
+                        </div> <button class="css-badge"> Create playlist </button>
+                    </div>
+                    <div class="box">
+                        <div class="box-p1">
+                            <p>Let's find some podcasts to follow</p>
+                        </div>
+                        <div class="box-p2">
+                            <p>We'll keep you updated on new episodes</p>
+                        </div> <button class="css-badge"> Browse podcasts </button>
+                    </div>
+                    <div class="extra">
+                        <p>Legal &emsp;Safety & Privacy Center&emsp;Privacy Policy</p>
+                         <p>Cookies&emsp;About Ads&emsp;Acessibility </p>
+                        <span class="badge rounded-pill text-bg-dark">🌐 English</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="sticky-nav">
+                <div class="sticky-nav-icons">
+                    <img src="./assets/backward_icon.png" alt="img">
+                    <img class="hide" src="./assets/forward_icon.png" alt="img">
+                </div>
+                <div class="search-bar">
+                    <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
+                    <input id="search" type="text" placeholder="What's your vibe?" />
+                    <i class="fa-solid fa-inbox"></i>
+                </div>
+                <div class="sticky-nav-options">
+                    <button class="css-badge sticky-nav-item hide">Explore Premium</button>
+                    <button class="css-badge sticky-nav-item dark-badge"><i class="fa-regular fa-circle-down"
+                            style="margin-right:5px;"></i>Install App</button>
+                    <i class="fa-regular fa-user nav-item"></i>
+                </div>
+            </div>
+            <div class="cards">
+                <h4 style="margin-left:1rem">Recently Played</h4>
+
+                <div class="cards-container">
+
+                    <div class="sp-card">
+                        <img src="https://i.scdn.co/image/ab67616d0000b273292341cd3e621d7f9171331f" alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Finding Her</h5>
+                            <p class="card-text">Kushagra,Bharath Srinivasan,Saaheal</p>
+                        </div>
+                    </div>
+
+                    <div class="sp-card">
+                        <img src="https://images.genius.com/d33845f3b8989353f30fa388654330a1.1000x1000x1.png" alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Rakhlo Tum Chupake</h5>
+                            <p class="card-text">Arpit Bala,Adil</p>
+                        </div>
+                    </div>
+
+
+                    <div class="sp-card">
+                        <img src="https://i.scdn.co/image/ab67616d0000b2735fe9856a449aab589c06b6c8" alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Paaro</h5>
+                            <p class="card-text">Aditya Rikhari,UNPLG'd</p>
+                        </div>
+                    </div>
+
+                    <div class="sp-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9bF2igP1UyTg5vx9CN3n0LnGgiw1IO4zxRg&s"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Jo Tum Mere Ho</h5>
+                            <p class="card-text">Anuv Jain</p>
+                        </div>
+                    </div>
+
+                    <div class="sp-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZxwoaW0U5jArhRFx2EROyqTputqGxizF9dA&s"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Iss Tarah</h5>
+                            <p class="card-text">Chaar Diwaari,Sonu Nigam</p>
+                        </div>
+                    </div>
+
+                    <div class="sp-card">
+                        <img src="https://i.scdn.co/image/ab67616d00001e0288242aba9912ec1a16ddbdfe" alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">For A Reason</h5>
+                            <p class="card-text">Karan Aujla,Ikky</p>
+                        </div>
+                    </div>
+
+                    <div class="sp-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStWBUAV0ft4dy22vkch0EwHcjdibPwFhQJPw&s"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Afsanay</h5>
+                            <p class="card-text">Talha Anjum, Talhah Yunus</p>
+                        </div>
+                    </div>
+
+                </div>
+                <h4 style="margin-left:1rem">Trending</h4>
+                <div class="cards-container">
+                    <div class="sp-card"> <img src="https://i.scdn.co/image/ab67616d00001e02974c87c4d1b73970e0f45f70"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Inaam (Ft.Badshah)</h5>
+                            <p class="card-text">Jasleen Royal,Badshah,Ansh Chahal</p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img src="https://i.scdn.co/image/ab67616d0000b273f636f602313d09930701de59"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Bandhu 2.0 (From "Cocktail 2")</h5>
+                            <p class="card-text">Pritam,Kavita Seth,Neeraj Shridhar</p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img src="https://i.scdn.co/image/ab67616d0000b2737be686dc1febf2f2957c1fce"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Low Fade</h5>
+                            <p class="card-text">Karan Aujla,Mxrci</p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img src="https://i.scdn.co/image/ab67616d0000b2736ad66aec066a88f5f5921ab9"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Tere Pass Main</h5>
+                            <p class="card-text">A.R. Rahman,Irshad Kamil,Deepali Sahay </p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img src="https://i.scdn.co/image/ab67616d0000b27325fa2d19b2363a9520a34409"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Arz Kiya Hai | Coke Studio Bharat</h5>
+                            <p class="card-text">Anuv jain </p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img src="https://i.scdn.co/image/ab67616d0000b273e5c835140f84d7cf4c56b275"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Ban Ja Tu</h5>
+                            <p class="card-text">Charan Preet,Badshah </p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img src="https://i.scdn.co/image/ab67616d0000b273a81f7cd4177159051ac9bbfc"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">O sanam</h5>
+                            <p class="card-text">Akhil Sachdeva</p>
+                        </div>
+                    </div>
+                </div>
+                <h4 style="margin-left:1rem">Popular Artists</h4>
+                <div class="cards-container" id="artists">
+                    <div class="sp-card"> <img src="https://i.scdn.co/image/ab6761610000e5ebcb6926f44f620555ba444fca"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Pritam</h5>
+                            <p class="card-text">Artist </p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img src="https://i.scdn.co/image/ab6761610000e5eb5ba2d75eb08a2d672f9b69b7"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Arijit Singh</h5>
+                            <p class="card-text">Artist </p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMMALQsk4ZQ8SSsRo-EC9hJ5LR2UrYt-igww&s"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">A.R. Rahman</h5>
+                            <p class="card-text">Artist </p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img src="https://i.scdn.co/image/ab6761610000e5eb0f0be2054fe9594026a6b843"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Anirudh Ravichander</h5>
+                            <p class="card-text">Artist</p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img src="https://i.scdn.co/image/ab6761610000e5ebc40600e02356cc86f0debe84"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Atif Aslam</h5>
+                            <p class="card-text">Artist </p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img src="https://i.scdn.co/image/ab6761610000e5eb90b6c3d093f9b02aad628eaf"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Vishal-Shekhar</h5>
+                            <p class="card-text">Artist </p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img src="https://i.scdn.co/image/ab6761610000e5eb33a750f4e8264286af8e751a"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">KR$NA</h5>
+                            <p class="card-text">Artist </p>
+                        </div>
+                    </div>
+
+
+                </div>
+                <h4 style="margin-left:1rem">Featured Charts</h4>
+                <div class="cards-container">
+                    <div class="sp-card"> <img src="./assets/card1img.jpeg" alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Top 50 Global hits</h5>
+                            <p class="card-text">Daily update of the most played tracks </p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img
+                            src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c012b83c24893789afad8af2e"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"> Trending Bollywood Hits</h5>
+                            <p class="card-text"> This year's catchy and top bollwood hits </p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4-8sMy-8Rs8k9K6RLQYh7uayc2IO5YFH4Fw&s"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Top 50 Indian hits</h5>
+                            <p class="card-text">The most played tracks in India</p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa5xJsAffEJkvhrWM_HJViwGbm114euNDQueiXriHfDg&s"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Top DHH hits</h5>
+                            <p class="card-text">Explore desi hip hop like never before </p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img
+                            src="https://charts-images.scdn.co/assets/locale_en/regional/weekly/region_in_default.jpg"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Top Songs in India</h5>
+                            <p class="card-text">Weekly update of the most played tracks </p>
+                        </div>
+                    </div>
+                    <div class="sp-card"> <img
+                            src="https://charts-images.scdn.co/assets/locale_en/regional/weekly/region_global_default.jpg"
+                            alt="img">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Top Global hits</h5>
+                            <p class="card-text"> Daily update of the most played tracks </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="footer">
+                <div class="other-links">
+                 <div class="pages">
+                    <div class="company">
+                        <p style="font-weight: bold;font-size: 1.5rem;">Company</p>
+                        <p>About</p>
+                        <p>Jobs</p>
+                        <p>For the Record</p>
+                    </div>
+                     <div class="community"><p style="font-weight: bold;font-size: 1.5rem;">Communities</p>
+                     <p>For Artists</p>
+                     <p>Developers</p>
+                     <p>Advertising</p>
+                     <p>Investors</p>
+                     <p>Vendors</p>
+                    </div>
+                     <div class="useful-links">
+                        <p style="font-weight: bold;font-size: 1.5rem;">Support</p>
+                        <p>Free Mobile App</p>
+                        <p>Popular by Country</p>
+                        <p>Import your music</p>
+                     </div>
+                     <div class="spotify-plans">
+                        <p style="font-weight: bold; font-size: 1.5rem;">Spotify Plans</p>
+                        <p>Premium Standard</p>
+                        <p>Premium Platinum</p>
+                        <p>Premium Student</p>
+                        <p>Spotify Free</p>
+                     </div>
+                  </div> 
+                  <div class="socials">
+                    <div class="ig"><i class="fa-brands fa-square-instagram"></i></div>
+                    <div class="x"><i class="fa-brands fa-square-x-twitter"></i></div>
+                    <div class="fb"><i class="fa-brands fa-square-facebook"></i></div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="music-player">
+            <div class="album">
+                <img class="song" src="https://i.pinimg.com/474x/05/48/09/05480954b947f7271099517054b54456.jpg"
+                    alt="img">
+                <div class="info">
+                    <p style="font-weight: bold;">My Ordinary Life</p>
+                    <p style="font-size:0.75rem">The Living Tombstone</p>
+                </div>
+                <img class="heart" src="./assets/album_icon1.png" alt="img">
+                <img class="pic-in-pic" src="./assets/album_icon2.png" alt="img">
+            </div>
+            <div class="player">
+                <div class="player-controls">
+                    <img src="./assets/player_icon1.png" alt="img" class="player-control-icon">
+                    <img src="./assets/player_icon2.png" alt="img" class="player-control-icon">
+                    <img src="./assets/player_icon3.png" alt="img" class="player-control-icon"
+                        style="opacity:1; height:2rem;">
+                    <img src="./assets/player_icon4.png" alt="img" class="player-control-icon">
+                    <img src="./assets/player_icon5.png" alt="img" class="player-control-icon">
+                </div>
+                <div class="playback-bar">
+                    <span class="cur-time">5:19</span>
+                    <input type="range" min="0" max="100" class="progress-bar" step="1">
+                    <span class="tot-time">12:14</span>
+                </div>
+            </div>
+            <div class="controls">
+                <img src="./assets/controls_icon1.png" alt="img" class="tools">
+                <img src="./assets/controld_icon2.png" alt="img" class="tools">
+                <img src="./assets/controls_icon3.png" alt="img" class="tools" style="height:1.25rem; width:1.25rem;">
+                <img src="./assets/controls_icon4.png" alt="img" class="tools" style="height: 1rem; width: 1rem;">
+                <img src="./assets/controls_icon5.png" alt="img" class="tools">
+                <input type="range" class="volume tools">
+            </div>
+        </div>
+</body>
+
+</html>
