@@ -1,0 +1,369 @@
+body {
+ font-family: "Montserrat", sans-serif;
+ margin:0;
+ background-color: black;
+ color:white;
+ overflow:hidden;
+}
+::-webkit-scrollbar{
+  background-color: rgba(14, 2, 2, 0.427);
+  border-radius: 10px;
+}
+.main{
+ display:flex;
+ height:100vh;
+ padding: 0.5rem;
+}
+.sidebar{
+    background-color:black;
+    width:340px;
+    border-radius:1rem;
+    margin-right: 0.75rem;
+
+}
+.main-content{
+    background-color:black;
+    flex:1;
+    border-radius:1rem;
+    overflow:auto;
+
+}
+.music-player{
+    background-color:black;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    height:72px;
+}
+a{
+    text-decoration:none;
+    color:white;
+}
+.sidebar-nav{
+    display:flex;
+    background-color:#121212;
+    border-radius:1rem;
+    flex-direction:column;
+    justify-content:center;
+    height:100px;
+    padding:0.5rem 0.75rem;
+}
+.sidebar-nav-option{
+    line-height: 2.5rem;
+    opacity:0.7;
+    padding:0.5rem 0.75rem;
+
+}
+.sidebar-nav-option:hover{
+    opacity:1;
+}
+.sidebar-nav-option i,.sidebar-nav-option img{
+    height:1.25rem;
+
+}
+.sidebar-nav-option a{
+    font-size: 1rem;
+    margin-left:1rem;
+}
+.library{
+    background-color: #121212;
+    border-radius: 1rem;
+    height:100%;
+    margin-top: 0.5rem;
+    padding:0.5rem 0.75rem;
+}
+.options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.lib-option img{
+ height:1.25rem;
+ width:1.25rem;
+
+}
+.icons{
+    font-size:1.25rem;
+    display:flex;
+}
+.icons i{
+     opacity:0.7;
+    margin-right:1rem;
+}
+.icons i:hover{
+    opacity:1;
+}
+.box{
+    background-color:#232323;
+    height:8rem;
+    border-radius: 0.75rem;
+    margin:0.75rem 0 1rem 0;
+    padding:0.5rem 1rem;
+
+}
+.box-p1{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.box-p2{
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+.css-badge{
+    background-color: white;
+    border:none;
+    border-radius: 100px;
+    padding:0.25rem 1rem;
+    font-weight: 700;
+    margin-top:0.5rem;
+    height:2rem;
+    width:fit-content;
+}
+.extra{
+font-size:0.75rem;
+}
+.extra span{
+    font-size:1rem;
+}
+.sticky-nav{
+    z-index:2;
+    position:sticky;
+    top: 0;
+    background-color: #121212;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:1rem 0 1rem 0;
+    border-radius: 1.25rem;
+}
+.sticky-nav-icons{
+    margin-left:0.75rem;
+}
+.sticky-nav-options{
+    margin-right: 1rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.sticky-nav-item{
+    margin-right: 1rem;
+}
+.search-bar{
+    border:0.25rem solid black;
+    width: 25rem;
+    height:2.75rem;
+    display: flex;
+    background-color: #232323;
+    align-items:center;
+    justify-content: space-between;
+    border-radius:1.25rem;
+    padding:1rem;
+}
+input{
+    all:unset;
+    background-color: #232323;
+    width:12.5rem;
+    text-decoration: none;
+}
+
+.dark-badge{
+    background-color: black;
+    color: white;
+}
+@media (max-width:1000px){
+    .hide{
+        display: none;
+    }
+}
+.cards{
+    border-radius:1.25rem;
+    background-color: #121212;
+    margin:1rem 0 1rem 0;
+    padding:1rem 0 1rem 0;
+
+}
+.cards-container{
+    display:flex;
+    gap:1rem;
+    height:17.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin:1rem;
+}
+#artists img{
+    display:block;
+    border-radius: 50%;
+    width:100%;
+    height:65%;
+}
+.cards-container::-webkit-scrollbar {
+    display: none;             
+}
+
+.sp-card{
+    margin:0.25rem;
+    border-radius:1rem;
+    background-color:#121212;
+    color:white;
+    border:none;
+    overflow:hidden;
+    flex-shrink:0;
+    width:11rem;
+}
+.sp-card:hover{
+    
+    transition: background-color 0.3s ease;
+    background-color: #232323;
+
+}
+.sp-card img{
+    display:block;
+    border-radius: 1rem;
+    width:100%;
+}
+.footer{
+    height:500px;
+}
+
+.music-player{
+    display:flex;
+    justify-content: center;
+    align-items: center;   
+
+}
+.player-controls{
+    display:flex;
+    justify-content:space-around;
+    align-items: center; 
+    margin-left:1.5rem;
+}
+.player{
+    width:50%;
+}
+.player-control-icon{
+    height: 1rem;
+    margin-right: 1.75rem;
+    opacity:0.7;
+}
+.player-control-icon:hover{
+    opacity:1;
+}
+.playback-bar{
+    display:flex;
+    justify-content:center;
+    align-items: center; 
+}
+.progress-bar{
+     width:70%;
+     appearance: none;
+     background-color:transparent;
+     cursor:pointer;
+
+}
+.progress-bar::-webkit-slider-runnable-track{
+    background-color:#ddd;
+    border-radius: 100px;
+    height:0.2rem;
+}
+.progress-bar::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    border-radius: 50%;
+     height:1rem;
+     width:1rem;
+     background-color:#1bd760;
+     margin-top:-6px;
+}
+.album{
+    width:25%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    gap:0.75rem;
+    margin:0.5rem;
+    padding:0.5rem;
+    margin-left:1rem;
+}
+.song{
+    width:3.5rem;
+    height:3.5rem;
+}
+.info p{
+    margin:0;
+}
+.pic-in-pic{
+    height:2rem;
+    width:2rem;
+}
+.heart{
+    height:1.5rem;
+    width:1.5rem;
+}
+.controls{
+    width:25%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:0.5rem;
+    padding:0.5rem;
+    margin-right: 2px;
+}
+.tools{
+   height:2rem;
+   width:2rem;
+}
+.volume{
+    width:7rem;
+    appearance: none;
+    background-color:transparent;
+    cursor:pointer;
+}
+.volume::-webkit-slider-runnable-track{
+    background-color:#ddd;
+    border-radius: 100px;
+    height:0.2rem;
+}
+.volume::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance:none;
+    border-radius: 50%;
+    height:1rem;
+     width:1rem;
+     background-color:#1bd760;
+     margin-top:-6px;
+}
+.other-links{
+  margin-top: 2rem;
+  display:flex;
+
+}
+
+.pages p:hover{
+    text-decoration: underline;
+    font-size: 1.1rem;
+}
+
+.pages{
+    width:75%;
+    display:flex;
+    justify-content: center;
+    align-items: baseline;
+    font-size:1rem;
+    gap:2rem;
+}
+.socials{
+    width:25%;
+    display:flex;
+    justify-content: center;
+    align-content:baseline;
+    gap:1rem;
+}
+.ig,.x,.fb{
+     font-size: 2rem;
+}
+.socials i:hover{
+font-size:2.1rem;
+}
+
+
