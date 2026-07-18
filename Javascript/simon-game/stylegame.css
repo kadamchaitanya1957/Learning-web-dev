@@ -1,0 +1,40 @@
+ .red{
+      background-color: red;
+    }
+    .blue{
+      background-color: blue;
+    }
+    .green{
+      background-color: green;
+    }
+    .yellow{
+      background-color: yellow;
+    }
+    .main{
+      
+      display:block;
+      margin:auto;
+      width:100px;
+      height:30px;
+    }
+    body {
+      text-align: center;
+
+    }
+   
+    .one div,.two div  {
+      height: 200px;
+      width: 200px;
+      border-radius: 20%;
+      border: 10px solid black;
+      margin:1rem;
+      opacity:0.6;
+
+    }
+    
+      .one,.two{
+      display: flex;
+      justify-content: center;
+      align-content: center;
+
+    }
