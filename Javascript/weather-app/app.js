@@ -116,22 +116,24 @@ function next4days(list){
     let count = 1;
     
     for(let i=8;i<=39;i++){
+        lowtemp.push(list[i].main.temp_min);
+        hightemp.push(list[i].main.temp_max);
          if(count>8 || i==39){ 
             max.push(Math.max(...hightemp));
             min.push(Math.min(...lowtemp));
+            hightemp=[];
+            lowtemp=[];
             count=1;
          }
          if(count === 4){
             let x = new Date(list[i].dt_txt);
             day.push(x.getDay());
-            dates.push(x.getDate());
+            dates.push(`${x.getDate()}/${x.getMonth()+1}`);
+            
             const icon = `https://openweathermap.org/img/wn/${list[i].weather[0].icon}@2x.png`;
             icons.push(icon);
             windspeed.push(list[i].wind.speed);
-         }
-        lowtemp.push(list[i].main.temp_min);
-        hightemp.push(list[i].main.temp_max);
-        
+         }        
         count++;
     }
       
