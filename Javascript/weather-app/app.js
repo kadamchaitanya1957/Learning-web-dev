@@ -22,7 +22,7 @@ function degToCompass(deg) {
         return "NE";
     }
     else if (67.5 <= deg && deg < 112.5) {
-        return "E";
+        return "E"; 
     }
     else if (112.5 <= deg && deg < 157.5) {
         return "SE";
@@ -150,6 +150,16 @@ function next4days(list){
       }
     
 }
+function checkAirQuality(pollution){
+   const arr = [
+    "Good",
+    "Fair",
+    "Moderate", 
+    "Poor",
+    "Very Poor"
+   ];
+   return arr[pollution.data.list[0].main.aqi];
+}
 
 async function getWeather(search) {
     btn.disabled = true;
@@ -185,11 +195,13 @@ async function getWeather(search) {
         console.log("Clouds: ",weather.clouds.all,"%");
         console.log("Sunrise: ",formatTime(weather.sys.sunrise,weather.timezone));
         console.log("Susnset :",formatTime(weather.sys.sunset,weather.timezone));
+        let url1 = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${weather.coord.lat}&lon=${weather.coord.lon}&appid=eca5eed12c5411fb464d804c0a3847eb`
+        let pollution = await axios.get(url1);
+        console.log(checkAirQuality(pollution));
 
         console.log("the api data of the forecast is :");
         let url2 =`https://api.openweathermap.org/data/2.5/forecast?q=${search}&units=metric&appid=eca5eed12c5411fb464d804c0a3847eb`;
         let forecast = await axios.get(url2);
-
         console.log("The 24 hour forecast data: ");
         next24hr(forecast.data.list);
 
