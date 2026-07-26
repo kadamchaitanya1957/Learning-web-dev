@@ -1,83 +1,204 @@
-let inp = document.querySelector("input");
-let btn = document.querySelector("button");
-btn.addEventListener("click",function(){
+let inp = document.querySelector("input");  //search input
+let btn = document.querySelector("button"); //search button
+const originalText = btn.innerText;         
+btn.addEventListener("click", function () {
     let search = inp.value;
     getWeather(search);
-})
+});
+inp.addEventListener("keydown", function () {
+    if (event.key == "Enter") {
+        let search = inp.value;
+        getWeather(search);
+    }
+});
 
-function degToCompass(deg){
-    if((0<=deg && deg<22.5)||(337.5<=deg && deg<=360)){
+//function to pass a direction based on the degree input by the api
+
+function degToCompass(deg) {
+    if ((0 <= deg && deg < 22.5) || (337.5 <= deg && deg <= 360)) {
         return "N";
     }
-    else if(22.5<=deg && deg<67.5){
-        return"NE";
+    else if (22.5 <= deg && deg < 67.5) {
+        return "NE";
     }
-   else if(67.5<=deg && deg<112.5){
-        return"E";
-    }   
-    else if(112.5<=deg && deg<157.5){
-        return"SE";
-    }   
-    else if(157.5<=deg && deg<202.5){
-        return"S";
+    else if (67.5 <= deg && deg < 112.5) {
+        return "E";
     }
-    else if(202.5<=deg && deg<247.5){
-        return"SW";
-    } 
-    else if(247.5<=deg && deg<292.5){
-        return"W";
-    }   
-    else if(292.5<=deg && deg<337.5){
-        return"NW";
-    }                                                                                                                                                                                                                                                              
+    else if (112.5 <= deg && deg < 157.5) {
+        return "SE";
+    }
+    else if (157.5 <= deg && deg < 202.5) {
+        return "S";
+    }
+    else if (202.5 <= deg && deg < 247.5) {
+        return "SW";
+    }
+    else if (247.5 <= deg && deg < 292.5) {
+        return "W";
+    }
+    else if (292.5 <= deg && deg < 337.5) {
+        return "NW";
+    }
 }
+
+//function to get local time of that city as  the api returns only in how many seconds ahead it is of the gmt.
+// Date.now gives the number of milliseconds from 1 january 1970 called the (Unix epoch)
 
 function getLocalTimeForCity(timezoneOffsetSeconds) {
-  const utcMillis = Date.now(); 
-  const localMillis = utcMillis + (timezoneOffsetSeconds * 1000); 
-  const localTime = new Date(localMillis);
+    const utcMillis = Date.now();                        
+    const localMillis = utcMillis + (timezoneOffsetSeconds * 1000); //converts seconds into milliseconds and gives number of milliseconds for target city
+    const localTime = new Date(localMillis);    // this gives an object which understands the milliseconds as a date
 
-  
-  const hours = localTime.getUTCHours().toString().padStart(2, "0");
-  const minutes = localTime.getUTCMinutes().toString().padStart(2, "0");
- 
+    const hours = localTime.getUTCHours().toString().padStart(2, "0");   // this gives 2 digits for hours it its one it adds 0 in front
+    const minutes = localTime.getUTCMinutes().toString().padStart(2, "0");  //  this gives 2 digits for minutes it its one it adds 0 in front
+    const date = new Intl.DateTimeFormat("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    weekday: "short"
+   });
 
-  return `${hours}:${minutes}`;
+    
+    return `${hours}:${minutes} , ${date.format(localTime)}`;
 }
 
+// this function format time converts the milliseonds input from api to local time for sunrise and sunset
 
+function formatTime(unixSeconds) { 
+  const date = new Date(unixSeconds * 1000); // Again the milliseconds become a date object and hence is recognisable
+  return date.toLocaleTimeString('en-US', {
+    hour: '2-digit',            
+    minute: '2-digit',
+    hour12: true,
+  });
+}
 
+// A function that gives the forecast for next 24 hours .
 
-async function getWeather(search){
-  try{
-   let url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=eca5eed12c5411fb464d804c0a3847eb`;
-let response = await axios.get(url);
-
-let weather = response.data;
-
-const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
-console.log("Country name:", regionNames.of(weather.sys.country)); 
-console.log("city name: ",weather.name);
-console.log("Main tempertature: ",weather.main.temp,"°C");
-console.log("Feels like: ",weather.main.feels_like,"°C");
-console.log("Minimum Temperature: ",weather.main.temp_min,"°C");
-console.log("Maximum Temperatue: ",weather.main.temp_max,"°C");
-console.log("Humidity: ",weather.main.humidity,"%");
-console.log("Pressure: ",weather.main.pressure,"hPa");
-console.log("Description:  ",weather.weather[0].description);
-console.log("Main: ",weather.weather[0].main);
-
-const iconUrl = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
-console.log("Icon URL:", iconUrl);
-console.log("Wind speed: ",weather.wind.speed,"m/s");
-
-console.log("Wind direction: ", degToCompass(weather.wind.deg),`[${weather.wind.deg} degrees]`); 
-console.log("Visibility: ",weather.visibility,"m");
-
-console.log("Local time: ", getLocalTimeForCity(weather.timezone));
- }
-  
-    catch(e){
-        console.log("error",e);
+function next24hr(list){
+    for(let i =0 ; i<=7; i++){    // as the api returns a 3 hr timestamp and hence with 8 array indexes we get 24 hrs a day
+        
+        let dateandtime = new Date(list[i].dt_txt);
+        let hrs = dateandtime.getHours();
+        let mins = dateandtime.getMinutes();
+        console.log(`${hrs}:${mins}`);
+        console.log(`${list[i].main.temp}°C` );
+        console.log(list[i].weather[0].description);
+        const icon = `https://openweathermap.org/img/wn/${list[i].weather[0].icon}@2x.png`;
+        console.log(icon);
+        console.log(`${list[i].wind.speed} m/s`);
+        console.log(` ${degToCompass(list[i].wind.deg)}, [${list[i].wind.deg}degrees]`);
     }
 }
+//const arr = [5, 2, 9, 1, 7];
+
+//const max = Math.max(...arr);
+//console.log(max); // 9
+function next4days(list){
+    console.log(list);
+    let lowtemp =[];
+    let hightemp = [];
+    let dates = []; 
+    let icons = [];
+    let windspeed = [];
+    let day =[];
+    let max=[]; 
+    let min=[];
+    const days =[
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    ];
+    let count = 1;
+    
+    for(let i=8;i<=39;i++){
+         if(count>8 || i==39){ 
+            max.push(Math.max(...hightemp));
+            min.push(Math.min(...lowtemp));
+            count=1;
+         }
+         if(count === 4){
+            let x = new Date(list[i].dt_txt);
+            day.push(x.getDay());
+            dates.push(x.getDate());
+            const icon = `https://openweathermap.org/img/wn/${list[i].weather[0].icon}@2x.png`;
+            icons.push(icon);
+            windspeed.push(list[i].wind.speed);
+         }
+        lowtemp.push(list[i].main.temp_min);
+        hightemp.push(list[i].main.temp_max);
+        
+        count++;
+    }
+      
+        for(let i=0; i<=3; i++){
+        console.log("Day",i);
+        console.log(dates[i]);
+        console.log(days[day[i]]);
+        console.log(max[i],"°C");
+        console.log(min[i],"°C");
+        console.log(icons[i]);
+        console.log(windspeed[i],"m/s");
+      }
+    
+}
+
+async function getWeather(search) {
+    btn.disabled = true;
+    btn.innerText ="Loading";
+    try {
+
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=eca5eed12c5411fb464d804c0a3847eb`;
+        let response = await axios.get(url);
+        console.log(response);
+
+        let weather = response.data;
+
+        const regionNames = new Intl.DisplayNames(['en'], { type: 'region' }); // displays full name of initials 
+        console.log("Country name:", regionNames.of(weather.sys.country));
+        console.log("city name: ", weather.name);
+        console.log("Main tempertature: ", weather.main.temp, "°C");
+        console.log("Feels like: ", weather.main.feels_like, "°C");
+        console.log("Minimum Temperature: ", weather.main.temp_min, "°C");
+        console.log("Maximum Temperatue: ", weather.main.temp_max, "°C");
+        console.log("Humidity: ", weather.main.humidity, "%");
+        console.log("Pressure: ", weather.main.pressure, "hPa");
+        console.log("Description:  ", weather.weather[0].description);
+        console.log("Main: ", weather.weather[0].main);
+
+        const iconUrl = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;   //this api call returns the image link
+        console.log("Icon URL:", iconUrl);
+        console.log("Wind speed: ", weather.wind.speed, "m/s");
+
+        console.log("Wind direction: ", degToCompass(weather.wind.deg), `[${weather.wind.deg} degrees]`);
+        console.log("Visibility: ", weather.visibility/1000, "km");
+
+        console.log("Local time: ", getLocalTimeForCity(weather.timezone));
+        console.log("Clouds: ",weather.clouds.all,"%");
+        console.log("Sunrise: ",formatTime(weather.sys.sunrise));
+        console.log("Susnset :",formatTime(weather.sys.sunset));
+
+        console.log("the api data of the forecast is :");
+        let url2 =`https://api.openweathermap.org/data/2.5/forecast?q=${search}&units=metric&appid=eca5eed12c5411fb464d804c0a3847eb`;
+        let forecast = await axios.get(url2);
+
+        console.log("The 24 hour forecast data: ");
+        next24hr(forecast.data.list);
+
+        console.log("The 4 day forecast:");
+        next4days(forecast.data.list);
+    }
+
+    catch (e) {
+        console.log("error:", e);
+        console.log("This city is not found");
+    }
+    finally{
+          btn.disabled = false;
+          btn.innerText = originalText;
+    }
+} 
