@@ -55,7 +55,8 @@ function getLocalTimeForCity(timezoneOffsetSeconds) {
     day: "numeric",
     month: "long",
     year: "numeric",
-    weekday: "short"
+    weekday: "short",
+    hour12: true,
    });
 
     
@@ -64,36 +65,37 @@ function getLocalTimeForCity(timezoneOffsetSeconds) {
 
 // this function format time converts the milliseonds input from api to local time for sunrise and sunset
 
-function formatTime(unixSeconds) { 
-  const date = new Date(unixSeconds * 1000); // Again the milliseconds become a date object and hence is recognisable
-  return date.toLocaleTimeString('en-US', {
-    hour: '2-digit',            
-    minute: '2-digit',
-    hour12: true,
-  });
+function formatTime(unixTime, timezoneOffsetSeconds) { 
+    // Unix time is in UTC
+    const utcMillis = unixTime * 1000;
+    // Shift to the city's local time
+    const localMillis = utcMillis + (timezoneOffsetSeconds * 1000);
+    const date = new Date(localMillis);
+    return date.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+        timeZone: "UTC"  
+    });
 }
 
 // A function that gives the forecast for next 24 hours .
 
 function next24hr(list){
     for(let i =0 ; i<=7; i++){    // as the api returns a 3 hr timestamp and hence with 8 array indexes we get 24 hrs a day
-        
         let dateandtime = new Date(list[i].dt_txt);
-        let hrs = dateandtime.getHours();
-        let mins = dateandtime.getMinutes();
+        let hrs = dateandtime.getHours().toString().padStart(2, "0");
+        let mins = dateandtime.getMinutes().toString().padStart(2, "0");
         console.log(`${hrs}:${mins}`);
         console.log(`${list[i].main.temp}°C` );
         console.log(list[i].weather[0].description);
         const icon = `https://openweathermap.org/img/wn/${list[i].weather[0].icon}@2x.png`;
         console.log(icon);
         console.log(`${list[i].wind.speed} m/s`);
-        console.log(` ${degToCompass(list[i].wind.deg)}, [${list[i].wind.deg}degrees]`);
+        console.log(` ${degToCompass(list[i].wind.deg)} (${list[i].wind.deg}°)`);
     }
 }
-//const arr = [5, 2, 9, 1, 7];
 
-//const max = Math.max(...arr);
-//console.log(max); // 9
 function next4days(list){
     console.log(list);
     let lowtemp =[];
@@ -176,13 +178,13 @@ async function getWeather(search) {
         console.log("Icon URL:", iconUrl);
         console.log("Wind speed: ", weather.wind.speed, "m/s");
 
-        console.log("Wind direction: ", degToCompass(weather.wind.deg), `[${weather.wind.deg} degrees]`);
+        console.log(`Wind direction: ${degToCompass(weather.wind.deg)} (${weather.wind.deg}°)`);
         console.log("Visibility: ", weather.visibility/1000, "km");
 
         console.log("Local time: ", getLocalTimeForCity(weather.timezone));
         console.log("Clouds: ",weather.clouds.all,"%");
-        console.log("Sunrise: ",formatTime(weather.sys.sunrise));
-        console.log("Susnset :",formatTime(weather.sys.sunset));
+        console.log("Sunrise: ",formatTime(weather.sys.sunrise,weather.timezone));
+        console.log("Susnset :",formatTime(weather.sys.sunset,weather.timezone));
 
         console.log("the api data of the forecast is :");
         let url2 =`https://api.openweathermap.org/data/2.5/forecast?q=${search}&units=metric&appid=eca5eed12c5411fb464d804c0a3847eb`;
