@@ -5,8 +5,8 @@ btn.addEventListener("click", function () {
     let search = inp.value;
     getWeather(search);
 });
-inp.addEventListener("keydown", function () {
-    if (event.key == "Enter") {
+inp.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
         let search = inp.value;
         getWeather(search);
     }
@@ -79,7 +79,8 @@ function formatTime(unixTime, timezoneOffsetSeconds) {
     });
 }
 
-// A function that gives the forecast for next 24 hours .
+// A function that gives the forecast for next 24 hours this data is given by api in a 3hr timestamp manner
+// in these 3 hr intervals 8 stamps conclude to be 24 hours of data 
 
 function next24hr(list){
     for(let i =0 ; i<=7; i++){    // as the api returns a 3 hr timestamp and hence with 8 array indexes we get 24 hrs a day
@@ -96,16 +97,19 @@ function next24hr(list){
     }
 }
 
+//function for forecatsing next  4 days of data this data is same as for the 24 hr  function
+// the only differnece being here we mostly use the indexes after first 8 skipping the first 24 hours
+
 function next4days(list){
     console.log(list);
-    let lowtemp =[];
-    let hightemp = [];
-    let dates = []; 
-    let icons = [];
-    let windspeed = [];
-    let day =[];
-    let max=[]; 
-    let min=[];
+    let lowtemp =[];     //storing  the lowest temperature at each timestamp
+    let hightemp = [];   //storing  the highest temperature at each timestamp
+    let dates = [];      //storing the dates for next 4 days 
+    let icons = [];      //storing icons describing the weather 
+    let windspeed = [];  //windspeed for the next 4 days
+    let day =[];         //day of the week
+    let max=[];          //stores max temperature of the 8 timestamps
+    let min=[];          //stores min temperature of the 8 timestamps
     const days =[
         "Sunday",
         "Monday",
@@ -151,14 +155,14 @@ function next4days(list){
     
 }
 function checkAirQuality(pollution){
-   const arr = [
-    "Good",
-    "Fair",
-    "Moderate", 
-    "Poor",
-    "Very Poor"
-   ];
-   return arr[pollution.data.list[0].main.aqi];
+   const aqi = {
+    1:"Good",
+    2:"Fair",
+    3:"Moderate", 
+    4:"Poor",
+    5:"Very Poor"
+   };
+   return aqi[pollution.data.list[0].main.aqi];
 }
 
 async function getWeather(search) {
@@ -195,12 +199,12 @@ async function getWeather(search) {
         console.log("Clouds: ",weather.clouds.all,"%");
         console.log("Sunrise: ",formatTime(weather.sys.sunrise,weather.timezone));
         console.log("Susnset :",formatTime(weather.sys.sunset,weather.timezone));
-        let url1 = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${weather.coord.lat}&lon=${weather.coord.lon}&appid=eca5eed12c5411fb464d804c0a3847eb`
+        let url1 = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${weather.coord.lat}&lon=${weather.coord.lon}&appid=eca5eed12c5411fb464d804c0a3847eb` //aqi api call
         let pollution = await axios.get(url1);
         console.log(checkAirQuality(pollution));
 
         console.log("the api data of the forecast is :");
-        let url2 =`https://api.openweathermap.org/data/2.5/forecast?q=${search}&units=metric&appid=eca5eed12c5411fb464d804c0a3847eb`;
+        let url2 =`https://api.openweathermap.org/data/2.5/forecast?q=${search}&units=metric&appid=eca5eed12c5411fb464d804c0a3847eb`; //forecast api call
         let forecast = await axios.get(url2);
         console.log("The 24 hour forecast data: ");
         next24hr(forecast.data.list);
