@@ -1,5 +1,6 @@
 let inp = document.querySelector("input");  //search input
-let btn = document.querySelector("button"); //search button
+let btn = document.querySelector("button");  //search button
+let nav = document.querySelector("#location");
 const originalText = btn.innerText;         
 btn.addEventListener("click", function () {
     let search = inp.value;
@@ -10,6 +11,22 @@ inp.addEventListener("keydown", function (event) {
         let search = inp.value;
         getWeather(search);
     }
+});
+nav.addEventListener("click",function(){
+    btn.disabled = true;
+    btn.innerText ="Loading";
+    navigator.geolocation.getCurrentPosition(
+        async function(position){
+          let lat = position.coords.latitude;
+          let  lon = position.coords.longitude;
+          let  url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=eca5eed12c5411fb464d804c0a3847eb`;
+          let link = await axios.get(url);
+          getWeather(link.data.name);
+        },
+        function(e){
+          console.log(e);
+        }
+    ) 
 });
 
 //function to pass a direction based on the degree input by the api
