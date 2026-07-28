@@ -1,7 +1,27 @@
 let inp = document.querySelector("input");  //search input
 let btn = document.querySelector("button");  //search button
-let nav = document.querySelector("#location");
-const originalText = btn.innerText;         
+let nav = document.querySelector(".location");
+let bgimg = document.querySelector(".bgimg");
+let city = document.querySelector(".cityname");
+let country = document.querySelector(".country");
+let time = document.querySelector(".time");
+let date = document.querySelector(".date");
+let temp = document.querySelector(".temp");
+let currIcon = document.querySelector(".curr-icon");
+let des = document.querySelector(".description");
+let feel = document.querySelector(".feels-like");
+let air = document.querySelector(".aqi");
+let sunrise = document.querySelector(".sunrise");
+let sunset = document.querySelector(".sunset");
+let speed = document.querySelector(".speed");
+let direction = document.querySelector(".direction");
+let cloudpercent = document.querySelector(".cloudpercent");
+let vis = document.querySelector(".visibility");
+let humidity = document.querySelector(".humidity");
+let pressure = document.querySelector(".pressure");
+
+
+
 btn.addEventListener("click", function () {
     let search = inp.value;
     getWeather(search);
@@ -14,7 +34,8 @@ inp.addEventListener("keydown", function (event) {
 });
 nav.addEventListener("click",function(){
     btn.disabled = true;
-    btn.innerText ="Loading";
+    inp.disabled =true;
+    inp.setAttribute("placeholder","Loading...");
     navigator.geolocation.getCurrentPosition(
         async function(position){
           let lat = position.coords.latitude;
@@ -73,11 +94,11 @@ function getLocalTimeForCity(timezoneOffsetSeconds) {
     month: "long",
     year: "numeric",
     weekday: "short",
-    hour12: true,
+     timeZone: "UTC"
    });
 
     
-    return `${hours}:${minutes} , ${date.format(localTime)}`;
+    return `<p style="text-align:center;">${hours}:${minutes}</p> <br> ${date.format(localTime)}`;
 }
 
 // this function format time converts the milliseonds input from api to local time for sunrise and sunset
@@ -100,6 +121,9 @@ function formatTime(unixTime, timezoneOffsetSeconds) {
 // in these 3 hr intervals 8 stamps conclude to be 24 hours of data 
 
 function next24hr(list){
+    let max = 0;
+    let min = 100;
+    let arr = [];
     for(let i =0 ; i<=7; i++){    // as the api returns a 3 hr timestamp and hence with 8 array indexes we get 24 hrs a day
         let dateandtime = new Date(list[i].dt_txt);
         let hrs = dateandtime.getHours().toString().padStart(2, "0");
@@ -111,7 +135,16 @@ function next24hr(list){
         console.log(icon);
         console.log(`${list[i].wind.speed} m/s`);
         console.log(` ${degToCompass(list[i].wind.deg)} (${list[i].wind.deg}°)`);
+        if(max < list[i].main.temp_max){
+            max = list[i].main.temp_max;
+        }
+        if(min > list[i].main.temp_min){
+            min = list[i].main.temp_min;
+        }
     }
+    arr.push(max);
+    arr.push(min);
+    return arr;
 }
 
 //function for forecatsing next  4 days of data this data is same as for the 24 hr  function
@@ -182,43 +215,92 @@ function checkAirQuality(pollution){
    return aqi[pollution.data.list[0].main.aqi];
 }
 
+// let inp = document.querySelector("input");  //search input
+// let btn = document.querySelector("button");  //search button
+// let nav = document.querySelector(".location");
+// let bgimg = document.querySelector(".bgimg");
+// let city = document.querySelector(".cityname");
+// let country = document.querySelector(".country");
+// let time = document.querySelector(".time");
+// let date = document.querySelector(".date");
+// let temp = document.querySelector(".temp");
+// let currIcon = document.querySelector(".curr-icon");
+// let des = document.querySelector(".description");
+// let feel = document.querySelector(".feels-like");
+// let air = document.querySelector(".aqi");
+// let sunrise = document.querySelector(".sunrise");
+// let sunset = document.querySelector(".sunset");
+// let speed = document.querySelector(".speed");
+// let direction = document.querySelector(".direction");
+// let cloudpercent = document.querySelector(".cloudpercent");
+// let vis = document.querySelector(".visibility");
+// let humidity = document.querySelector(".humidity");
+// let pressure = document.querySelector(".pressure");
+
+
 async function getWeather(search) {
     btn.disabled = true;
-    btn.innerText ="Loading";
+    inp.disabled = true;
+    inp.innerText ="Loading";
     try {
 
         let url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=eca5eed12c5411fb464d804c0a3847eb`;
         let response = await axios.get(url);
-        console.log(response);
 
         let weather = response.data;
 
+        // console.log("Country name:", regionNames.of(weather.sys.country));
+        city.innerText = weather.name;
+
         const regionNames = new Intl.DisplayNames(['en'], { type: 'region' }); // displays full name of initials 
-        console.log("Country name:", regionNames.of(weather.sys.country));
-        console.log("city name: ", weather.name);
-        console.log("Main tempertature: ", weather.main.temp, "°C");
-        console.log("Feels like: ", weather.main.feels_like, "°C");
-        console.log("Minimum Temperature: ", weather.main.temp_min, "°C");
-        console.log("Maximum Temperatue: ", weather.main.temp_max, "°C");
-        console.log("Humidity: ", weather.main.humidity, "%");
-        console.log("Pressure: ", weather.main.pressure, "hPa");
-        console.log("Description:  ", weather.weather[0].description);
-        console.log("Main: ", weather.weather[0].main);
+        country.innerText =  `(${regionNames.of(weather.sys.country)})`;
+
+        // console.log("Local time: ", getLocalTimeForCity(weather.timezone));
+        time.innerHTML= `${getLocalTimeForCity(weather.timezone)}`;
+
+
+        // console.log("Main tempertature: ", weather.main.temp, "°C");
+        temp.innerText = `${weather.main.temp}°C`;
 
         const iconUrl = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;   //this api call returns the image link
-        console.log("Icon URL:", iconUrl);
-        console.log("Wind speed: ", weather.wind.speed, "m/s");
+        currIcon.setAttribute("src",iconUrl);
 
-        console.log(`Wind direction: ${degToCompass(weather.wind.deg)} (${weather.wind.deg}°)`);
-        console.log("Visibility: ", weather.visibility/1000, "km");
+        // console.log("Description:  ", weather.weather[0].description);
+        des.innerText = weather.weather[0].description;
 
-        console.log("Local time: ", getLocalTimeForCity(weather.timezone));
-        console.log("Clouds: ",weather.clouds.all,"%");
-        console.log("Sunrise: ",formatTime(weather.sys.sunrise,weather.timezone));
-        console.log("Susnset :",formatTime(weather.sys.sunset,weather.timezone));
-        let url1 = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${weather.coord.lat}&lon=${weather.coord.lon}&appid=eca5eed12c5411fb464d804c0a3847eb` //aqi api call
+        // console.log("Feels like: ", weather.main.feels_like, "°C");
+        feel.innerText= `Feels like: ${weather.main.feels_like}°C`;
+
+        let url1 = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${weather.coord.lat}&lon=${weather.coord.lon}&appid=eca5eed12c5411fb464d804c0a3847eb`; //aqi api call
         let pollution = await axios.get(url1);
-        console.log(checkAirQuality(pollution));
+        // console.log(ity(pollution));
+        air.innerText=`Aqi: ${checkAirQuality(pollution)}`;
+
+        // console.log("Sunrise: ",formatTime(weather.sys.sunrise,weather.timezone));
+        sunrise.innerText = `${formatTime(weather.sys.sunrise,weather.timezone)}`;
+
+        // console.log("Susnset :",formatTime(weather.sys.sunset,weather.timezone));
+        sunset.innerText = `${formatTime(weather.sys.sunset,weather.timezone)}`;
+
+        // console.log("Wind speed: ", weather.wind.speed, "m/s");
+        speed.innerText=`${weather.wind.speed}m/s`;
+
+        // console.log(`Wind direction: ${degToCompass(weather.wind.deg)} (${weather.wind.deg}°)`);
+        direction.innerText=`${degToCompass(weather.wind.deg)} (${weather.wind.deg}°)`;
+
+        // console.log("Clouds: ",weather.clouds.all,"%");
+        cloudpercent.innerHTML = `${weather.clouds.all}%`;
+
+        // console.log("Visibility: ", weather.visibility/1000, "km");
+        vis.innerText =`${weather.visibility/1000}Km`;
+
+        // console.log("Pressure: ", weather.main.pressure, "hPa");
+        pressure.innerText = `${weather.main.pressure}hPa`;
+
+
+        // console.log("Humidity: ", weather.main.humidity, "%");
+        humidity.innerText = `${weather.main.humidity}%`;
+  
 
         console.log("the api data of the forecast is :");
         let url2 =`https://api.openweathermap.org/data/2.5/forecast?q=${search}&units=metric&appid=eca5eed12c5411fb464d804c0a3847eb`; //forecast api call
@@ -233,9 +315,11 @@ async function getWeather(search) {
     catch (e) {
         console.log("error:", e);
         console.log("This city is not found");
+        alert("This city is not found");
     }
     finally{
           btn.disabled = false;
-          btn.innerText = originalText;
+          inp.disabled= false;
+          inp.setAttribute("placeholder","  Search for a city's weather");
     }
 } 
