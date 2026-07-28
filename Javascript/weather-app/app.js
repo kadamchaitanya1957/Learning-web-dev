@@ -21,7 +21,6 @@ let humidity = document.querySelector(".humidity");
 let pressure = document.querySelector(".pressure");
 
 
-
 btn.addEventListener("click", function () {
     let search = inp.value;
     getWeather(search);
@@ -49,6 +48,36 @@ nav.addEventListener("click",function(){
         }
     ) 
 });
+
+//function to se the bg image 
+
+function setBgimg(description){
+    switch(description){
+        case "Clear":
+           bgimg.setAttribute("src","clear.jpg");
+           break;
+       
+        case "Clouds":
+           bgimg.setAttribute("src","cloudy.jpg");
+           break;
+
+        case "Rain":
+        case "Drizzle":
+           bgimg.setAttribute("src","rain.jpg");
+           break;
+
+        case "Thunderstorm":
+            bgimg.setAttribute("src","thunder.jpg");
+            break;
+
+        case "Snow":
+            bgimg.setAttribute("src","snow.jpg");
+             break;
+
+        default:
+             bgimg.setAttribute("src","clear.jpg");
+    }        
+}
 
 //function to pass a direction based on the degree input by the api
 
@@ -215,28 +244,6 @@ function checkAirQuality(pollution){
    return aqi[pollution.data.list[0].main.aqi];
 }
 
-// let inp = document.querySelector("input");  //search input
-// let btn = document.querySelector("button");  //search button
-// let nav = document.querySelector(".location");
-// let bgimg = document.querySelector(".bgimg");
-// let city = document.querySelector(".cityname");
-// let country = document.querySelector(".country");
-// let time = document.querySelector(".time");
-// let date = document.querySelector(".date");
-// let temp = document.querySelector(".temp");
-// let currIcon = document.querySelector(".curr-icon");
-// let des = document.querySelector(".description");
-// let feel = document.querySelector(".feels-like");
-// let air = document.querySelector(".aqi");
-// let sunrise = document.querySelector(".sunrise");
-// let sunset = document.querySelector(".sunset");
-// let speed = document.querySelector(".speed");
-// let direction = document.querySelector(".direction");
-// let cloudpercent = document.querySelector(".cloudpercent");
-// let vis = document.querySelector(".visibility");
-// let humidity = document.querySelector(".humidity");
-// let pressure = document.querySelector(".pressure");
-
 
 async function getWeather(search) {
     btn.disabled = true;
@@ -248,6 +255,8 @@ async function getWeather(search) {
         let response = await axios.get(url);
 
         let weather = response.data;
+
+        setBgimg(weather.weather[0].main);
 
         // console.log("Country name:", regionNames.of(weather.sys.country));
         city.innerText = weather.name;

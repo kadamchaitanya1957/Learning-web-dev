@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>🌤️Weather App</title>
     <link rel="stylesheet" href="style.css">
-</head>
+    
 
 <body>
 
@@ -22,18 +22,18 @@
     // a 24 hr forecast 
        maybe a table like this 
         timestamp1     timestamp2     timestamp3     timestamp4   5  6  7  8
-temp
-description(icon) 
-wind sp
-wind dir  
+  temp
+  description(icon) 
+  wind sp
+  wind dir  
    
     // a 4 day forecast
       table:
         date(day)1   2  3   4
-max temp
-min temp 
-description(icon) 
-wind sp
+  max temp
+  min temp 
+  description(icon) 
+  wind sp
 
     // extra details
     //sunrise,sunset
@@ -41,96 +41,102 @@ wind sp
     //wind speed ,wind direction 
     //visibility,clouds -->
     <div class="container">
-        <img class="bgimg" src="clear.jpg" alt="">
+        
+            <img class="bgimg" src="clear.jpg" alt="">
+        
 
         <div class="header">
             <input type="text" placeholder="  Search for a city's weather">
             <button class="search">🔍</button>
             <button class="location">◎</button>
         </div>
+
+        <div class="content">
+
+            <div class="currentcard">
+                <div class="current-details">
+                    <div class="names">
+                        <P class="cityname">City name</P>
+                        <p class="country">country</p>
+                    </div>
+                    <div>
+                        <p class="time">time </p>
+                    </div>
+
+                    <div>
+                        <p class="temp">temp</p>
+                    </div>
+                    <div>
+                        <img class="curr-icon" src="" alt="img">
+                    </div>
+                    <div>
+                        <p class="description">description</p>
+                    </div>
+                    <div>
+                        <p class="feels-like">Feels like:</p>
+                    </div>
+                    <div>
+                        <p class="aqi">Aqi</p>
+                    </div>
+                </div>
+                <div class="extra-details">
+                    <div class="sun">
+                        <div>
+                            <p>🌇</p>
+                            <p>Sunrise:</p>
+                            <p class="sunrise">--</p>
+                        </div>
+                        <div>
+                            <p>🌆</p>
+                            <p>Sunset:</p>
+                            <p class="sunset">--</p>
+                        </div>
+                    </div>
+                    <div class="wind">
+                        <div>
+                            <p>🌪️</p>
+                            <p>Wind Speed:</p>
+                            <p class="speed">--</p>
+                        </div>
+                        <div>
+                            <p>🧭</p>
+                            <p>Direction:</p>
+                            <p class="direction">--</p>
+                        </div>
+                    </div>
+                    <div class="clouds">
+                        <div>
+                            <p>☁️</p>
+                            <p>Clouds:</p>
+                            <p class="cloudpercent">--</p>
+                        </div>
+                        <div class="visible">
+                            <p>👓</p>
+                            <p>Visibility:</p>
+                            <p class="visibility">--</p>
+                        </div>
+                    </div>
+                    <div class="pressure-humidity">
+                        <div>
+                            <p>🌡️</p>
+                            <p>Pressure:</p>
+                            <p class="pressure">--</p>
+                        </div>
+                        <div>
+                            <p>♨️</p>
+                            <p>Humidity:</p>
+                            <p class="humidity">--</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="forecasts">
+                this is the forecast
+            </div>
+        </div>
     </div>
 
-    <div class="currentcard">
-        <div class="current-details">
-            <div class="names">
-                <P class="cityname" style="text-align: center;">City name</P>
-                <p class="country" style="text-align:center">country</p>
-            </div>
-            <div>
-                <p class="time">time </p>
-            </div>
-            
-            <div>
-                <p class="temp">temp</p>
-            </div>
-            <div>
-                <img class="curr-icon" src="" alt="img">
-            </div>
-            <div>
-                <p class="description">description</p>
-            </div>
-            <div>
-                <p class="feels-like">Feels like:</p>
-            </div>
-            <div>
-                <p class="aqi">Aqi</p>
-            </div>
-        </div>
-        <div class="extra-details">
-            <div class="sun">
-                <div>
-                    <p>🌇</p>
-                    <p>Sunrise:</p>
-                    <p class="sunrise">--</p>
-                </div>
-                <div>
-                    <p>🌆</p>
-                    <p>Sunset:</p>
-                    <p class="sunset">--</p>
-                </div>
-            </div>
-            <div class="wind">
-                <div>
-                    <p>🌪️</p>
-                    <p>Wind Speed:</p>
-                    <p class="speed">--</p>
-                </div>
-                <div>
-                    <p>🧭</p>
-                    <p>Direction:</p>
-                    <p class="direction">--</p>
-                </div>
-            </div>
-            <div class="clouds">
-                <div>
-                    <p>☁️</p>
-                    <p>Clouds:</p>
-                    <p class="cloudpercent">--</p>
-                </div>
-                <div class="visible">
-                    <p>👓</p>
-                    <p>Visibility:</p>
-                    <p class="visibility">--</p>
-                </div>
-            </div>
-            <div class="pressure-humidity">
-                <div>
-                    <p>🌡️</p>
-                    <p>Pressure:</p>
-                    <p class="pressure">--</p>
-                </div>
-                <div>
-                    <p>♨️</p>
-                    <p>Humidity:</p>
-                    <p class="humidity">--</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <div class="forecasts">
-        this is the forecast
-    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
     <script src="app.js"></script>
 
