@@ -10,16 +10,12 @@ let score = document.createElement("h2");
 score.innerText = "Your highscore:";
 document.body.appendChild(score);
 
-
-
 function start() {
   beg.remove();
   document.body.style.backgroundColor = "white";
   level = 0;
   gameSeq = [];
   nextLevel();
-  
-  
 }
 
 function nextLevel() {
