@@ -73,7 +73,7 @@ body{
     align-items:center;
     padding:30px;
     border-radius:20px;
-    background:rgba(255,255,255,0.35);
+    background:rgba(202, 208, 190, 0.250);
     backdrop-filter:blur(8px);
     border:1px solid rgba(255,255,255,.4);
     gap:40px;
@@ -121,7 +121,7 @@ body{
     align-items:center;
     text-align:center;
     border-radius:18px;
-    background:rgba(124,181,217,.45);
+    background:rgba(175, 193, 203, 0.250);
 
 }
 .forecasts{
@@ -130,7 +130,7 @@ body{
     min-height:350px;
     padding:20px;
     border-radius:20px;
-    background:rgba(255,255,255,.35);
+    background:rgba(202, 208, 190, 0.250);
     backdrop-filter:blur(8px);
     display:flex;
     justify-content:center;
@@ -142,7 +142,7 @@ body{
     min-height:250px;
     padding:20px;
     border-radius:20px;
-    background:rgba(255,255,255,.35);
+    background:rgba(255,255,255,.250);
     backdrop-filter:blur(8px);
 }
 
@@ -173,4 +173,135 @@ body{
     padding:10px;
 }
 
+}
+.forecasts{
+    flex-direction:column;
+    align-items:stretch;
+    gap:25px;
+    padding:25px 20px;
+}
+
+.forecast-title{
+    font-size:1.1rem;
+    font-weight:600;
+    margin-bottom:15px;
+    opacity:.9;
+}
+
+/* ---------- Hourly (scrollable) ---------- */
+.hourly-scroll{
+    display:flex;
+    gap:14px;
+    overflow-x:auto;
+    padding-bottom:12px;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+}
+
+.hourly-card{
+    flex:0 0 auto;
+    scroll-snap-align:start;
+    width:100px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    padding:16px 10px;
+    border-radius:16px;
+    background:rgba(124,181,217,.25);
+    text-align:center;
+}
+
+.hourly-time{
+    font-size:.85rem;
+    font-weight:600;
+}
+.hourly-icon{
+    width:42px;
+    height:42px;
+}
+.hourly-temp{
+    font-size:1.05rem;
+    font-weight:600;
+}
+.hourly-wind,
+.hourly-dir{
+    font-size:.75rem;
+    opacity:.8;
+}
+
+/* thin custom scrollbar instead of hiding it completely — signals scrollability */
+.hourly-scroll::-webkit-scrollbar{
+    height:5px;
+}
+.hourly-scroll::-webkit-scrollbar-thumb{
+    background:rgba(255,255,255,.25);
+    border-radius:10px;
+}
+.hourly-scroll::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+/* ---------- 4-day (row list) ---------- */
+.daily-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.daily-row{
+    display:grid;
+    grid-template-columns:80px 38px 1fr 90px;
+    align-items:center;
+    gap:16px;
+    padding:12px 16px;
+    border-radius:14px;
+    background:rgba(124,181,217,.25);
+}
+
+.daily-row .day{
+    font-weight:600;
+    font-size:.9rem;
+}
+.daily-icon{
+    width:34px;
+    height:34px;
+}
+.daily-row .wind{
+    font-size:.8rem;
+    text-align:right;
+    opacity:.85;
+}
+
+.temp-range{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:.85rem;
+}
+.temp-min{ opacity:.75; }
+.temp-max{ font-weight:600; }
+
+.temp-bar-track{
+    position:relative;
+    flex:1;
+    height:5px;
+    border-radius:5px;
+    background:rgba(255,255,255,.4);
+}
+.temp-bar-fill{
+    position:absolute;
+    top:0;
+    height:100%;
+    border-radius:5px;
+    background:linear-gradient(90deg,#7cb5d9,#f2a65a);
+}
+
+@media(max-width:500px){
+    .daily-row{
+        grid-template-columns:60px 30px 1fr;
+    }
+    .daily-row .wind{
+        display:none; /* drop wind on the row for very small screens */
+    }
 }

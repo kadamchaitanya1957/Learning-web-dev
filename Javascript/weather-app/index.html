@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌤️Weather App</title>
+    <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
-    
+    <link rel="icon" href="logo.png">
+
 
 <body>
 
@@ -41,9 +42,9 @@
     //wind speed ,wind direction 
     //visibility,clouds -->
     <div class="container">
-        
-            <img class="bgimg" src="clear.jpg" alt="">
-        
+
+        <img class="bgimg" src="./images/clear.jpg" alt="">
+
 
         <div class="header">
             <input type="text" placeholder="  Search for a city's weather">
@@ -131,9 +132,22 @@
                 </div>
             </div>
             <div class="forecasts">
-                this is the forecast
+                <div class="hourly-forecast">
+                    <h3 class="forecast-title">Hourly Forecast</h3>
+                    <div class="hourly-scroll">
+                        <!-- 8 .hourly-card elements injected by JS -->
+                    </div>
+                </div>
+
+                <div class="daily-forecast">
+                    <h3 class="forecast-title">4-Day Forecast</h3>
+                    <div class="daily-list">
+                        <!-- 4 .daily-row elements injected by JS -->
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
     </div>
 
 
