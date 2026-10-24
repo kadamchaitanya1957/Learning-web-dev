@@ -1,52 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chaitanya Kadam | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chaitanya Kadam | Portfolio and Resume</title>
+<meta name="description" content="Computer Engineering student building full-stack web apps and computer-vision tools.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="wrap">
+  <aside>
+    <h1>Chaitanya Deepak Kadam</h1>
+    <p class="role">Computer Engineering student</p>
+    <ul class="contact">
+      <li><span>Email</span><a href="mailto:kadamchaitanya195@gmail.com">kadamchaitanya195@gmail.com</a></li>
+      <li><span>Phone</span><a href="tel:+917715874710">77158 74710</a></li>
+      <li><span>Location</span>Navi Mumbai, Maharashtra</li>
+      <li><span>LinkedIn</span><a href="https://linkedin.com/in/chaitanya-kadam-4370b5385">chaitanya-kadam-4370b5385</a></li>
+      <li><span>GitHub</span><a href="https://github.com/kadamchaitanya1957">kadamchaitanya1957</a></li>
+    </ul>
+    <button class="theme" id="theme" type="button">Switch theme</button>
+  </aside>
 
-    <div class="container">
-        <h1>Chaitanya Kadam</h1>
-        <p class="subtitle">Frontend Projects</p>
+  <main>
+    <section>
+      <h2>Summary</h2>
+      <p class="summary">I’m a Computer Engineering student building full-stack web applications and computer-vision tools. I work with React, Node.js, Express and FastAPI, alongside Java for data structures and algorithms and Python with OpenCV and MediaPipe for real-time vision work. I’ve started building with MongoDB and TypeScript, and I’m currently working towards Next.js, Go and React Native.</p>
+    </section>
 
+    <section>
+      <h2>Education</h2>
+      <div class="item">
+        <div class="row"><h3>Bachelor of Engineering, Computer Engineering</h3><span class="when">09/2025 – 07/2029</span></div>
+        <p class="sub">Datta Meghe College of Engineering, Airoli, Navi Mumbai</p>
+        <p class="sub">CGPA 9.0 / 10</p>
+      </div>
+      <div class="item">
+        <div class="row"><h3>Higher Secondary Certificate, Science</h3><span class="when">Passed 2025</span></div>
+        <p class="sub">Sushiladevi Deshmukh Vidyalay, Navi Mumbai</p>
+        <p class="sub">92.5%</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <dl class="skills">
+        <div><dt>Languages</dt><dd>Java, Python, JavaScript, TypeScript, C++, C, SQL</dd></div>
+        <div><dt>Web frontend</dt><dd>React, JavaScript, TypeScript, HTML5, CSS3, Vite</dd></div>
+        <div><dt>Web backend</dt><dd>Node.js, Express, FastAPI, MongoDB, REST APIs</dd></div>
+        <div><dt>AI and computer vision</dt><dd>OpenCV, MediaPipe, PyTorch, NumPy, Pandas</dd></div>
+        <div><dt>Tools</dt><dd>Git, GitHub, VS Code, Cursor, Postman</dd></div>
+        <div><dt>Design and media</dt><dd>Figma, Canva, CapCut</dd></div>
+        <div><dt>Currently learning</dt><dd>Next.js, Go, React Native</dd></div>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Awards</h2>
+      <div class="row"><h3>Hackathon winner, Hacktoon 2026</h3><span class="when">28/03/2026</span></div>
+      <p class="sub">Anjuman-I-Islam Kalsekar’s Technical Campus</p>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="item">
+        <div class="row"><h3>TradeBull</h3><span class="when">02/2026 – 03/2026</span></div>
+        <p class="tag">A virtual trading simulator. Same feeling, zero risk.</p>
+        <p>Co-built a gamified player-vs-player stock trading simulator with React and Express/Socket.IO, pulling real-time stock prices from the Finnhub API. Owned the frontend build: integrating real-time stock data and a live market news feed into the UI, managing the API layer, and leading research into data sources and market mechanics. <span class="win">Won Hacktoon 2026</span></p>
+      </div>
+      <div class="item">
+        <div class="row"><h3>Universal Cross-Modal Deepfake Detector</h3><span class="when">07/2026 – Present</span></div>
+        <p class="tag">One upload, one verdict, across images, video and documents.</p>
+        <p>Built a full-stack authenticity-verification platform with a React + Vite front end and a FastAPI back end. A single <code>/api/v1/analyze</code> endpoint detects the incoming media type and routes it to the matching image, video or document service, returning a normalised authenticity score and confidence rating. Uses pretrained models with OpenCV and EasyOCR rather than training from scratch, keeping all inference logic server-side behind a fixed API contract. Covered by a pytest suite spanning health checks, file validation and the analysis pipeline.</p>
+      </div>
+      <div class="item">
+        <div class="row"><h3>Real-Time Hand Tracking Module</h3><span class="when">08/2026</span></div>
+        <p class="tag">The input layer for touchless, gesture-driven interfaces.</p>
+        <p>A Python computer-vision pipeline that tracks two hands simultaneously at webcam frame rate using MediaPipe’s HandLandmarker in video mode, tuned with explicit detection and tracking confidence thresholds for stability. Renders the full 21-point hand skeleton over the live OpenCV feed with indexed landmarks and bounds-clamped coordinates. Fetches its model on first run, so the module works from a clean clone with no manual setup.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Position of responsibility</h2>
+      <div class="row"><h3>Technical Member, CSI CATT</h3><span class="when">09/2026 – Present</span></div>
+      <p class="sub">Datta Meghe College of Engineering</p>
+      <p class="more">Worked on the committee’s seminar attendance system, which replaces manual roll-calls with per-student QR codes issued in-app. A volunteer scans a student’s code at the venue and the attendance record is submitted automatically, removing paper sign-in sheets and the transcription errors that come with them.</p>
+    </section>
+
+    <section>
+      <h2>Frontend projects</h2>
+      <div class="cards">
         <div class="card">
-            <h2>🍽️ Spice Heaven</h2>
-            <p>Responsive Restaurant Website built using HTML, CSS and JavaScript.</p>
-
-            <a href="HTML-CSS/Restaurant-website/Spice-heaven/index.html">
-                Live Demo
-            </a>
-        </div>
-
-        <div class="card">
-            <h2>🎵 Spotify UI Clone</h2>
-            <p>Spotify Desktop UI Clone built using Bootstrap.</p>
-
-            <a href="HTML-CSS/Spotify-ui/index.html">
-                Live demo
-            </a>
+          <h3>🍽️ Spice Heaven</h3>
+          <p>Responsive restaurant website built using HTML, CSS and JavaScript.</p>
+          <a href="HTML-CSS/Restaurant-website/Spice-heaven/index.html">Live demo</a>
         </div>
         <div class="card">
-            <h2> 🛑 Simon Says Game</h2>
-            <p> A game of Simon says build using javascript </p>
-
-            <a href ="Javascript/simon-game/index.html">
-                Live demo
-            </a>
+          <h3>🎵 Spotify UI Clone</h3>
+          <p>Spotify desktop UI clone built using Bootstrap.</p>
+          <a href="HTML-CSS/Spotify-ui/index.html">Live demo</a>
         </div>
         <div class="card">
-            <h2> ⛅ Weather App</h2>
-            <p> Weather app tp provide useful insights (js project)</p>
-
-            <a href ="Javascript/weather-app/index.html">
-                Live demo
-            </a>
+          <h3>🛑 Simon Says Game</h3>
+          <p>A game of Simon Says built using JavaScript.</p>
+          <a href="Javascript/simon-game/index.html">Live demo</a>
         </div>
-      
-    </div>
+        <div class="card">
+          <h3>⛅ Weather App</h3>
+          <p>A weather app that provides useful insights, built as a JavaScript project.</p>
+          <a href="Javascript/weather-app/index.html">Live demo</a>
+        </div>
+      </div>
+    </section>
 
+    <section>
+      <h2>Interests</h2>
+      <ul class="interests">
+        <li><b>Chess.</b> I play rapid regularly, drawn to the sharper, faster-clock decision-making it demands.</li>
+        <li><b>Film.</b> Drawn to deep, metaphor-driven films; <i>Dead Poets Society</i> is among my favourites.</li>
+        <li><b>Reading.</b> Nonfiction outside class; most recently <i>Think and Grow Rich</i> by Napoleon Hill.</li>
+      </ul>
+    </section>
+  </main>
+</div>
+<script>
+(function(){
+  var b=document.getElementById('theme'),r=document.documentElement;
+  b.addEventListener('click',function(){
+    var dark=r.getAttribute('data-theme')?r.getAttribute('data-theme')==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;
+    r.setAttribute('data-theme',dark?'light':'dark');
+  });
+})();
+</script>
 </body>
 </html>
